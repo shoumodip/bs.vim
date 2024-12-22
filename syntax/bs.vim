@@ -16,6 +16,7 @@ syntax match bsConstant "\<0x[0-9a-fA-F]\+\>"
 syntax match bsConstant "\<[0-9]\+\(\.[0-9]\+\)\?\>"
 
 syntax match bsField "\.\s*\a\w*\>"hs=s+1
+syntax match bsSpread "\.\."
 syntax match bsFunction "\<\a\w*\s*("he=e-1
 syntax match bsFunction "\.\s*\a\w*\s*("hs=s+1,he=e-1
 
