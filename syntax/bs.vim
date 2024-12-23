@@ -6,10 +6,9 @@ if exists("b:current_syntax")
 endif
 
 setlocal cindent
-setlocal cinkeys-=0#
 setlocal cinoptions+=+0,p0,(0,W4
 setlocal suffixesadd=.bs
-setlocal commentstring=#%s
+setlocal commentstring=//%s
 
 syntax clear
 syntax match bsConstant "\<0x[0-9a-fA-F]\+\>"
@@ -17,10 +16,11 @@ syntax match bsConstant "\<[0-9]\+\(\.[0-9]\+\)\?\>"
 
 syntax match bsField "\.\s*\a\w*\>"hs=s+1
 syntax match bsSpread "\.\."
+syntax match bsShebang "\%1l^#!/.*"
 syntax match bsFunction "\<\a\w*\s*("he=e-1
 syntax match bsFunction "\.\s*\a\w*\s*("hs=s+1,he=e-1
 
-syntax match bsComment "#.*"
+syntax match bsComment "//.*"
 syntax region bsNComment contains=bsNComment start="/\*" end="\*/" fold
 
 syntax keyword bsKeyword len panic assert import typeof delete if then else match in is for while break continue pub fn var return
@@ -42,6 +42,7 @@ highlight! link bsField Identifier
 highlight! link bsEscape SpecialChar
 highlight! link bsString TSString
 highlight! link bsKeyword Keyword
+highlight! link bsShebang PreProc
 highlight! link bsComment Comment
 highlight! link bsNComment Comment
 highlight! link bsConstant Number
