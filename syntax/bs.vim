@@ -26,8 +26,7 @@ syntax region bsNComment contains=bsNComment start="/\*" end="\*/" fold
 syntax keyword bsKeyword len panic assert import typeof delete if then else match in is for while break continue pub fn var return
 syntax keyword bsConstant nil true false this super is_main_module
 
-syntax match bsInherit "\s*<\s*" contained
-syntax match bsType "\<\a\w*\>\(\s*<\s*\a\w*\>\)\?" contained contains=bsInherit
+syntax match bsType "\<\a\w*\>" contained
 syntax keyword bsKeyword class skipwhite skipempty nextgroup=bsType
 
 syntax match bsEscapeInvalid '\\.' contained
