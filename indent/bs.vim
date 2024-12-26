@@ -33,14 +33,6 @@ function! BsIndent(lnum)
         let l:ind += shiftwidth()
     endif
 
-    if l:prevl =~ '^\s*\.'
-        let l:ind -= shiftwidth()
-    endif
-
-    if l:thisl =~ '^\s*\.'
-        let l:ind += shiftwidth()
-    endif
-
     if l:thisl =~ '^\s*[)}\]]'
         let l:ind -= shiftwidth()
     endif
