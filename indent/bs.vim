@@ -9,7 +9,7 @@ let b:did_indent = 1
 setlocal nolisp
 setlocal autoindent
 setlocal indentexpr=BsIndent(v:lnum)
-setlocal indentkeys+=<:>,0=},0=],0=),0=.
+setlocal indentkeys+=<:>,0=},0=],0=),0=*
 
 let b:undo_indent = "setlocal autoindent< indentexpr< indentkeys< lisp<"
 
@@ -35,6 +35,14 @@ function! BsIndent(lnum)
 
     if l:thisl =~ '^\s*[)}\]]'
         let l:ind -= shiftwidth()
+    endif
+
+    if l:prevl =~ '^\s*/\*'
+        let l:ind += 1
+    endif
+
+    if l:prevl =~ '^\s*\*/'
+        let l:ind -= 1
     endif
 
     return l:ind

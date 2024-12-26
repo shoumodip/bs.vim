@@ -7,6 +7,7 @@ endif
 
 setlocal suffixesadd=.bs
 setlocal commentstring=//%s
+setlocal formatoptions+=cro/
 
 syntax clear
 syntax match bsConstant "\<0x[0-9a-fA-F]\+\>"
