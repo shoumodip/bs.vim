@@ -5,8 +5,6 @@ if exists("b:current_syntax")
     finish
 endif
 
-setlocal cindent
-setlocal cinoptions+=+0,p0,(0,W4
 setlocal suffixesadd=.bs
 setlocal commentstring=//%s
 
