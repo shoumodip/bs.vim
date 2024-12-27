@@ -35,10 +35,23 @@ syntax region bsString contains=bsEscapeInvalid,bsEscape,bsInterpolation start='
 syntax region bsString contains=bsEscapeInvalid,bsEscape,bsInterpolation start="'" skip="\\\\\|\\'" end="'"
 syntax region bsInterpolation contained contains=TOP matchgroup=bsEscape start='{' end='}'
 
+" >:)
+syntax region bsRString start="{{" end="}}"
+syntax region bsRString start="{{{" end="}}}"
+syntax region bsRString start="{{{{" end="}}}}"
+syntax region bsRString start="{{{{{" end="}}}}}"
+syntax region bsRString start="{{{{{{" end="}}}}}}"
+syntax region bsRString start="{{{{{{{" end="}}}}}}}"
+syntax region bsRString start="{{{{{{{{" end="}}}}}}}}"
+syntax region bsRString start="{{{{{{{{{" end="}}}}}}}}}"
+syntax region bsRString start="{{{{{{{{{{" end="}}}}}}}}}}"
+syntax region bsRString start="{{{{{{{{{{{" end="}}}}}}}}}}}"
+
 highlight! link bsType Type
 highlight! link bsField Identifier
 highlight! link bsEscape SpecialChar
 highlight! link bsString TSString
+highlight! link bsRString TSString
 highlight! link bsKeyword Keyword
 highlight! link bsShebang PreProc
 highlight! link bsComment Comment
