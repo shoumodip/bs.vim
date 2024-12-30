@@ -28,12 +28,12 @@ syntax keyword bsConstant nil true false this super is_main_module
 syntax match bsType "\<\a\w*\>" contained
 syntax keyword bsKeyword class skipwhite skipempty nextgroup=bsType
 
-syntax match bsEscapeInvalid '\\.' contained
-syntax match bsEscape /\\e\|\\n\|\\r\|\\t\|\\0\|\\"\|\\'\|\\\\\|\\{/ contained
+syntax match bsStringEscapeInvalid '\\.' contained
+syntax match bsStringEscape /\\e\|\\n\|\\r\|\\t\|\\0\|\\"\|\\'\|\\\\\|\\{/ contained
 syntax region bsBraces contains=TOP matchgroup=NONE start='{' end='}'
-syntax region bsString contains=bsEscapeInvalid,bsEscape,bsInterpolation start='"' skip='\\\\\|\\"' end='"'
-syntax region bsString contains=bsEscapeInvalid,bsEscape,bsInterpolation start="'" skip="\\\\\|\\'" end="'"
-syntax region bsInterpolation contained contains=TOP matchgroup=bsEscape start='{' end='}'
+syntax region bsString contains=bsStringEscapeInvalid,bsStringEscape,bsInterpolation start='"' skip='\\\\\|\\"' end='"'
+syntax region bsString contains=bsStringEscapeInvalid,bsStringEscape,bsInterpolation start="'" skip="\\\\\|\\'" end="'"
+syntax region bsInterpolation contained contains=TOP matchgroup=bsStringEscape start='{' end='}'
 
 " >:)
 syntax region bsRString start="{{" end="}}"
@@ -49,7 +49,6 @@ syntax region bsRString start="{{{{{{{{{{{" end="}}}}}}}}}}}"
 
 highlight! link bsType Type
 highlight! link bsField Identifier
-highlight! link bsEscape SpecialChar
 highlight! link bsString TSString
 highlight! link bsRString TSString
 highlight! link bsKeyword Keyword
@@ -58,6 +57,7 @@ highlight! link bsComment Comment
 highlight! link bsNComment Comment
 highlight! link bsConstant Number
 highlight! link bsFunction Function
-highlight! link bsEscapeInvalid Error
+highlight! link bsStringEscape SpecialChar
+highlight! link bsStringEscapeInvalid Error
 
 let b:current_syntax = "bs"
