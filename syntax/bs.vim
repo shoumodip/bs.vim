@@ -22,7 +22,7 @@ syntax match bsFunction "\.\s*\a\w*\s*("hs=s+1,he=e-1
 syntax match bsComment "//.*"
 syntax region bsNComment contains=bsNComment start="/\*" end="\*/" fold
 
-syntax keyword bsKeyword len panic assert import typeof delete if then else match in is instanceof for while break continue pub fn var return defer
+syntax keyword bsKeyword len panic assert import typeof classof delete if then else match in is for while break continue pub fn var const return defer
 syntax keyword bsConstant nil true false this super is_main_module
 
 syntax match bsType "\<\a\w*\>" contained
